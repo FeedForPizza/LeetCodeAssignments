@@ -112,6 +112,45 @@ namespace LeetCodeAssignments
                 return list2;
             }
         }
+        static int RemoveDublicates(int[] nums)
+        {
+            int k = 1;
+            for(int i = 1; i < nums.Length; i++)
+            {
+                if(nums[i] != nums[i - 1])
+                {
+                    nums[k] = nums[i];
+                    k++;
+                }
+            }
+            return k;
+        }
+        static int RemoveElement(int[] nums, int val)
+        {
+            int current = 0; 
+            for(int i = 0; i < nums.Length; i++)
+            {
+                if(nums[i] != val)
+                {
+                    nums[current] = nums[i];
+                    current++;
+                }
+            }
+            return current;
+        }
+        static int StrStr(string haystack, string needle)
+        {
+            if (needle.Length == 0) { return 0; }
+
+            for(int i = 0; i < haystack.Length - needle.Length; i++)
+            {
+                if(haystack.Substring(i, needle.Length)== needle)
+                {
+                    return i;   
+                }
+            }
+            return -1;
+        }
     }
 
 }
